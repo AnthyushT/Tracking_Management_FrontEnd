@@ -1,0 +1,56 @@
+<div class="container py-3 h-80">
+    <div class="row d-flex align-items-center justify-content-center h-80">
+        <h1 class="row d-flex align-items-center justify-content-center main-text">Add Inventory</h1>
+        <div class="col-md-8 col-lg-7 col-xl-6 position-relative">
+            <img src="../../../assets/Images/Inventory-1.jpg" class="img-fluid rounded-img" alt="Phone image">
+            <div class="overlay-text">Inventory</div>
+        </div>
+        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+            <!-- Inventory form -->
+            <div *ngIf="hasWarehouse">
+
+                <form [formGroup]="inventoryForm" (ngSubmit)="onSubmit()">
+
+                    <!-- Inventory Category input -->
+                    <div class="form-outline mb-2">
+                        <label class="form-label" for="itemCategory">Inventory Category</label>
+                        <select id="itemCategory" class="form-control form-control-lg" formControlName="itemCategory">
+                            <option value="Electronics">Electronics</option>
+                            <option value="Clothing">Clothing</option>
+                            <option value="Jewellery">Jewellery</option>
+                        </select>
+                    </div>
+
+                    <div class="form-outline mb-2" *ngIf="hasWarehouse">
+                        <label class="form-label" for="warehouseName">Warehouse Name</label>
+                        <select id="warehouseName" class="form-control form-control-lg" formControlName="warehouseName"
+                            (change)="onWarehouseChange($event)">
+                            <option *ngFor="let warehouse of warehouses" [value]="warehouse.warehouseName">{{
+                                warehouse.warehouseName }}</option>
+                        </select>
+                    </div>
+
+                    <!-- Stock Level input -->
+                    <div class="form-outline mb-2">
+                        <label class="form-label" for="stockLevel">Stock Level (Min = {{ minStockLevel }}, Max = {{
+                            maxStockLevel }})</label>
+                        <input type="number" id="stockLevel" class="form-control form-control-lg"
+                            formControlName="stockLevel" min="100" max="1000">
+                    </div>
+
+                    <!-- Email input -->
+                    <div class="form-outline mb-2">
+                        <label class="form-label" for="email">Email(Enter the email linked with your account)</label>
+                        <input type="email" id="email" class="form-control form-control-lg" formControlName="email" />
+                    </div>
+
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary btn-block"
+                        [disabled]="!inventoryForm.valid">Submit</button>
+                </form>
+            </div>
+            <p class="error-message alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+        </div>
+    </div>
+</div>

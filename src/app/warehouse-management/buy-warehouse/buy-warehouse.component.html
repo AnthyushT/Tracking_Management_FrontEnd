@@ -1,0 +1,60 @@
+<div class="container py-3 h-80">
+    <div class="row d-flex align-items-center justify-content-center h-80">
+        <h1 class="row d-flex align-items-center justify-content-center main-text">Lease a Warehouse</h1>
+        <div class="col-md-8 col-lg-7 col-xl-6 position-relative">
+            <img src="../../../assets/Images/Warehouse-1.jpg" class="img-fluid rounded-img" alt="Phone image">
+            <div class="overlay-text">New Warehouse</div>
+        </div>
+        <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+
+            <form [formGroup]="warehouseForm" (ngSubmit)="onSubmit()">
+
+                <!-- Warehouse Name input -->
+                <div class="form-outline mb-2">
+                    <label class="form-label" for="warehouseName">Warehouse Name</label>
+                    <select id="warehouseName" class="form-control form-control-lg" formControlName="warehouseName"
+                        (change)="onWarehouseChange($event)">
+                        <option value="SuperSpace">SuperSpace</option>
+                        <option value="LargeStorage">LargeStorage</option>
+                        <option value="BigSpace">BigSpace</option>
+                        <option value="MySpace">MySpace</option>
+                        <option value="MindSpace">MindSpace</option>
+                    </select>
+                </div>
+
+                <!-- Warehouse Location input -->
+                <div class="form-outline mb-2">
+                    <label class="form-label" for="warehouseLocation">Warehouse Location</label>
+                    <select id="warehouseLocation" class="form-control form-control-lg"
+                        formControlName="warehouseLocation">
+                        <option value="Khammam">Khammam</option>
+                        <option value="Hyderabad">Hyderabad</option>
+                        <option value="Vijaywada">Vijaywada</option>
+                        <option value="Karimnagar">Karimnagar</option>
+                        <option value="Warangal">Warangal</option>
+                    </select>
+                </div>
+
+                <!-- Warehouse Capacity input -->
+                <div class="form-outline mb-2">
+                    <label class="form-label" for="warehouseCapacity">Warehouse Capacity</label>
+                    <input type="number" id="warehouseCapacity" class="form-control form-control-lg"
+                        formControlName="warehouseCapacity" readonly>
+                </div>
+
+                <!-- Email input -->
+                <div class="form-outline mb-2">
+                    <label class="form-label" for="email">Email(Enter the email linked with your OrderX)</label>
+                    <input type="email" id="email" class="form-control form-control-lg" formControlName="email" />
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block" [disabled]="!warehouseForm.valid">Lease the
+                    Warehouse</button>
+            </form>
+            <p class="error-message alert alert-danger" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+
+        </div>
+    </div>
+</div>

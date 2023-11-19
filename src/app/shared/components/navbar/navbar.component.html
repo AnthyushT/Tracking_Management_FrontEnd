@@ -1,0 +1,16 @@
+<nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+        <mat-icon>menu</mat-icon>
+    </label>
+    <label class="logo">OrderX</label>
+    <ul *ngIf="user==null">
+        <li><a href="" class="active" routerLink="/">Home</a></li>
+        <li><a href="" routerLink="/login">Login</a></li>
+        <li><a href="" routerLink="/register">Register</a></li>
+    </ul>
+    <ul *ngIf="user!=null">
+        <li><a href="" class="active" routerLink="/common">Home</a></li>
+        <li><a href="" (click)="logout()">Logout</a></li>
+    </ul>
+</nav>

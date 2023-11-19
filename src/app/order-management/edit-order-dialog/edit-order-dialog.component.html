@@ -1,0 +1,40 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div class="text-center py-1">
+    <h1>Edit Order</h1>
+</div>
+
+<form [formGroup]="editOrderForm" class="m-3">
+    <div class="row">
+        <div class="form-group col-md-6">
+            <label for="orderTitle">Order Title</label>
+            <input id="orderTitle" formControlName="orderTitle" class="form-control" />
+        </div>
+
+        <!-- Order Category input -->
+        <div class="form-group col-md-6">
+            <label for="orderCategory">Order Category</label>
+            <select id="orderCategory" class="form-control" formControlName="orderCategory">
+                <option value="Electronics">Electronics</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Jewellery">Jewellery</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row">
+        
+        <!-- Items input -->
+        <div class="form-group col-md-6">
+            <label for="items">Items</label>
+            <select id="items" class="form-control" formControlName="items">
+                <option *ngFor="let i of [1,2,3,4,5]" [value]="i">{{i}}</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="justify-content-evenly">
+        <button class="btn btn-success mx-2 mt-2" (click)="editOrder()">Edit</button>
+        <button class="btn btn-danger mx-2 mt-2" (click)="closeDialog()">Close</button>
+    </div>
+</form>

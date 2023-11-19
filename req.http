@@ -1,0 +1,92 @@
+GET http://localhost:8080/users_list/getAll
+
+### 
+
+POST http://localhost:8080/users_list/save
+Content-Type: application/json
+
+{
+    "firstName": "kishan reddy",
+    "lastName" : "sree",
+    "email" : "suleman@gmail.com",
+    "password" : "312323",
+    "mobileNumber" : "28271322218",
+    "typeOfUser" : "user"
+}
+
+###
+DELETE http://localhost:8080/users_list/delete/654cb363ad061b6b4b9c3163
+
+###
+PUT http://localhost:8080/users_list/edit/654b14b9232d842c8bfc85d0
+Content-Type: application/json
+
+{
+    "firstName": "suffian",
+    "lastName" : "shaik",
+    "email" : "suffian@gmail.com",
+    "password" : "27832",
+    "mobileNumber" : "282719218",
+    "typeOfUser" : "ADMIN"
+}
+
+###
+GET http://localhost:8080/orders_list/getAll
+
+### 
+
+POST http://localhost:8080/orders_list/save
+Content-Type: application/json
+
+{
+    "orderTitle": "Motor Bike",
+    "orderStatus" : "Delivered",
+    "orderCategory" : "toys",
+    "items" : "toy-3",
+    "email" : "anthyuh@gmail.com"
+}
+
+###
+DELETE http://localhost:8080/orders_list/
+###
+PUT http://localhost:8080/orders_list/
+Content-Type: application/json
+
+{
+    "orderTitle": "Motor Cycle",
+    "orderStatus" : "Delivered",
+    "orderCategory" : "Mechanical",
+    "items" : ["msn"],
+}
+
+### 
+GET http://localhost:8080/orders_list/email/anthyush@gmail.com
+
+###
+DELETE http://localhost:8080/orders_list/cancel/6550b3c17b445732c27465c9
+
+###
+
+POST http://localhost:8080/inventory_list/add
+Content-Type: application/json
+
+{
+    "itemCategory":"Jewellery",
+    "stockLevel":100,
+    "email":"anthyush@gmail.com"
+}
+
+###
+
+PUT  http://localhost:8080/inventory_list/increase/6554d1740db4c362885bcb66
+
+###
+POST  http://localhost:8080/warehouse_list/add
+Content-Type: application/json
+
+{
+    "warehouseTitle": "Khammam",
+    "warehouseLocation": "Telangana",
+    "warehouseCapacity": 1000,
+    "email":"anthyush@gmail.com"
+}
